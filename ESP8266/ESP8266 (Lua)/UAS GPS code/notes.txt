@@ -1,0 +1,32 @@
+----
+ToDo
+----
+
+Get PIC ADC working to read the battery voltage
+
+LCD is blank while on battery, need PIC reset or use switch to power up
+
+Altitude read 2420 then looses lock sometimes
+
+Have ESP send MAVLink Packets
+
+Disable GGL
+$PSRF103,01,00,00,01*25
+
+Disable GSV
+$PSRF103,03,00,00,01*27
+
+Disable RMC
+$PSRF103,04,00,00,01*20
+
+Parse GSA -> HDOP, VDOP, PDOP
+Parse VTG -> Course, Speed
+Parse ZDA -> Time, Date
+
+Use sockets to update webpage data
+
+Account for timezone
+
+--------
+Finished
+--------

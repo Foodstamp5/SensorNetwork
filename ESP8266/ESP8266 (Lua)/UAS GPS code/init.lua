@@ -1,0 +1,10 @@
+print("Booted")
+-- Wait 1000 ms before starting main
+tmr.alarm(0,1000,0,function()
+	print("Entering main.lua")
+	dofile("main.lua")
+	tmr.alarm(6,10000,0,function()
+		print("Entering sendGPS.lua")
+		dofile("sendGPS.lua")
+	end)
+end)
