@@ -2,14 +2,19 @@
 \input{Commands.tex}
 
 \begin{document}  	
-	\section{Team Members}
-		Nick Morley\\
-		Jonathan Richards\\
-		Daniel Kline\\
+	\section{The Team}
+		\begin{tabular}{l l}
+			Team Name:    & Sensor Network    \\
+			\\
+			Team Members: & Nick Morley       \\
+			              & Jonathan Richards \\
+			              & Daniel Kline\\
+			              \\
+			Technical Advisor: & Dr. Hovannes Kulhandjian\\
+			\\
+			Course Instructor: & Dr. Reza Raeisi\\
+		\end{tabular}
 		 
-	\section{Project Title}
-		Sensor Network 
-	
 	\section{Goal}
 		\begin{itemize}
 			\item Create a system to collect, transport, analyze, store, and visualize sensor data
@@ -22,7 +27,91 @@
 			\item Build sensor modules built around existing sensors that interface and draw power from the wireless node
 			\item Build wireless nodes that connect to the sensor module over a unified hardware interface. The nodes will form a mesh network to establish communication with the base station
 			\item The base station will interface with the nodes and sensors, both reading sensor values and controlling modules. It will also host the database to store historic data and a server to interface with mobile apps
+			\item The mobile app will allow the user to interface with our system; reading sensors, configuring nodes, and controlling nodes.
+		\end{itemize}
+	
+	\section{Background}
+		\begin{itemize}
+			\item Microcontroller Programming and Interfacing
+			\item Wireless Communication and Networking
+			\item Data Storage, Processing, and Serving
+			\item Mobile App Development
 		\end{itemize}
  
-	 	 
+	 \section{Feasibility}
+		 \begin{itemize}
+		 	\item ESP8266 Microcontroller
+			 	\begin{itemize}
+			 		\item Economical (\$15 Development Kit)
+			 		\item Integrated WiFi
+			 		\item Interface with multiple sensors
+			 	\end{itemize}
+		 	\item WiFi Communication
+			 	\begin{itemize}
+			 		\item Commonly available
+			 		\item Use mobile app to configure nodes via WiFi
+			 		\item Connect to existing network to access internet
+			 		\item Connect mobile device to local network to interface with sensors
+			 	\end{itemize}
+		 	\item Data Storage, Processing, \& Serving
+			 	\begin{itemize}
+			 		\item Use Raspberry Pi or router running Linux
+			 		\item Store sensor data on USB Drive using SQL or similar
+			 		\item Perform analytics on data
+			 		\item Configure controllers
+			 		\item Send data to mobile device for viewing via websockets
+			 	\end{itemize}
+			 \item Mobile App Development
+				 \begin{itemize}
+				 	\item Do initial setup of sensor
+				 	\item View sensor data
+				 	\item Configure controllers
+				 	\item Connect locally or over the internet through online account
+				 \end{itemize}
+		 \end{itemize}
+		 
+ 
+		 
+		 
+		 
+		 
+		 
+		 
+	 \newpage
+	 \section{Approval}
+		\begin{flushleft}
+			I agree to build the above project throughout ECE 186A and 186B.\\
+			\vspace{2em}
+			\begin{tabular}{l l l}
+				\line(1,0){250} & \hfill & \line(1,0){100}\\
+				\textit{Team Member Signature} & & \textit{Date}				
+			\end{tabular}
+			\vspace{2em}\\
+			\begin{tabular}{l l l}
+				\line(1,0){250} & \hfill & \line(1,0){100}\\
+				\textit{Team Member Signature} & & \textit{Date}
+			\end{tabular}
+			\vspace{2em}\\
+			\begin{tabular}{l l l}
+				\line(1,0){250} & \hfill & \line(1,0){100}\\
+				\textit{Team Member Signature} & & \textit{Date}
+			\end{tabular}
+			\vspace{5em}
+			
+			I agree to be the formal, technical adivsor to this project.\\
+			\vspace{2em}
+			\begin{tabular}{l l l}
+				\line(1,0){250} & \hfill & \line(1,0){100}\\
+				\textit{Technical Advisor Signature} & & \textit{Date}
+			\end{tabular}
+			\vspace{5em}
+			
+			I approve this project to be a viable capstone project.\\
+			\vspace{2em}
+			\begin{tabular}{l l l}
+				\line(1,0){250} & \hfill & \line(1,0){100}\\
+				\textit{Course Instructor Signature} & & \textit{Date}
+			\end{tabular}
+		\end{flushleft}		 
+		 
 \end{document}

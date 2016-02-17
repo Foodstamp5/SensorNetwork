@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.1)  16 FEB 2016 15:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.1)  16 FEB 2016 17:14
 entering extended mode
 **Proposal.tex
 (Proposal.tex
@@ -471,68 +471,36 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 \c@lstlisting=\count138
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 8.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 6.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\wasysym\uwasy.fd"
+File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 20.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 8.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 20.
+ [1
 
-
-LaTeX Warning: Reference `fig:Part_I_Registers' on page 1 undefined on input li
-ne 41.
-
-
-LaTeX Warning: Reference `fig:Part_I_RAM' on page 1 undefined on input line 41.
-
-
-
-LaTeX Warning: Reference `fig:Part_I_3_Registers' on page 1 undefined on input 
-line 41.
-
-
-LaTeX Warning: Reference `fig:Part_I_3_RAM' on page 1 undefined on input line 4
-1.
-
-[1
-
-{C:/Users/Nick/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-
-LaTeX Warning: Reference `fig:Part_II_Registers' on page 2 undefined on input l
-ine 67.
-
-
-LaTeX Warning: Reference `fig:Part_II_RAM' on page 2 undefined on input line 67
-.
-
-[2]
-
-LaTeX Warning: Reference `fig:Part_III_Registers' on page 3 undefined on input 
-line 93.
-
-
-LaTeX Warning: Reference `fig:Part_III_RAM' on page 3 undefined on input line 9
-3.
-
-[3] (Proposal.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+{C:/Users/Nick/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] (Pro
+posal.aux) ) 
 Here is how much of TeX's memory you used:
- 8475 strings out of 493673
- 127074 string characters out of 3141533
- 206512 words of memory out of 3000000
- 11716 multiletter control sequences out of 15000+200000
- 4671 words of font info for 18 fonts, out of 3000000 for 9000
+ 8497 strings out of 493673
+ 127379 string characters out of 3141533
+ 204512 words of memory out of 3000000
+ 11723 multiletter control sequences out of 15000+200000
+ 8345 words of font info for 31 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 39i,6n,39p,813b,238s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
-/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Proposal.pdf (3 pages, 58925 bytes).
+ 39i,6n,39p,813b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
+12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.p
+fb>
+Output written on Proposal.pdf (3 pages, 57900 bytes).
 PDF statistics:
  28 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
