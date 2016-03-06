@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.1)  18 FEB 2016 08:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.1)  3 MAR 2016 08:21
 entering extended mode
 **Proposal.tex
 (Proposal.tex
@@ -390,7 +390,11 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@ppsavesec=\count130
 \c@@ppsaveapp=\count131
 ))
-(Commands.tex) (Proposal.aux)
+(Commands.tex) (Proposal.aux
+
+LaTeX Warning: Label `fig:NetworkDiagram' multiply defined.
+
+)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
@@ -405,8 +409,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 4.
 LaTeX Font Info:    Try loading font information for LGR+cmr on input line 4.
-
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\cbfonts-fd\lgrcmr.fd"
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\cbfonts-fd\lgrcmr.fd"
 File: lgrcmr.fd 2013/09/01 v1.0 Greek European Computer Regular
 )
 LaTeX Font Info:    ... okay on input line 4.
@@ -471,38 +474,68 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 \c@lstlisting=\count138
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Try loading font information for U+wasy on input line 6.
+LaTeX Font Info:    Try loading font information for U+wasy on input line 7.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\wasysym\uwasy.fd"
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
-)
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 20.
+) (Proposal.toc)
+\tf@toc=\write4
+[1
+
+{C:/Users/Nick/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 25.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 20.
- [1
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 25.
+ [2]
+<BlockDiagram.png, id=11, 1125.20375pt x 791.95876pt>
+File: BlockDiagram.png Graphic file (type png)
+ <use BlockDiagram.png>
+Package pdftex.def Info: BlockDiagram.png used on input line 130.
+(pdftex.def)             Requested size: 533.9451pt x 375.80544pt.
 
-{C:/Users/Nick/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] (Pro
-posal.aux) ) 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3] [4 <./BlockDiagram.png>]
+<NetworkDiagram.png, id=20, 1066.98625pt x 847.165pt>
+File: NetworkDiagram.png Graphic file (type png)
+ <use NetworkDiagram.png>
+Package pdftex.def Info: NetworkDiagram.png used on input line 139.
+(pdftex.def)             Requested size: 591.64713pt x 469.75502pt.
+
+[5
+
+ <./NetworkDiagram.png>] <GantChart.png, id=25, 3398.6975pt x 1194.4625pt>
+File: GantChart.png Graphic file (type png)
+
+<use GantChart.png>
+Package pdftex.def Info: GantChart.png used on input line 150.
+(pdftex.def)             Requested size: 552.86948pt x 194.28923pt.
+ [6
+
+ <./GantChart.png>] (Proposal.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 8497 strings out of 493673
- 127379 string characters out of 3141533
- 204512 words of memory out of 3000000
- 11723 multiletter control sequences out of 15000+200000
- 8345 words of font info for 31 fonts, out of 3000000 for 9000
+ 8524 strings out of 493673
+ 127853 string characters out of 3141533
+ 206571 words of memory out of 3000000
+ 11743 multiletter control sequences out of 15000+200000
+ 8604 words of font info for 32 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 39i,6n,39p,813b,242s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
-12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.p
-fb>
-Output written on Proposal.pdf (3 pages, 57883 bytes).
+ 39i,8n,39p,813b,332s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
+/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Proposal.pdf (6 pages, 425101 bytes).
 PDF statistics:
- 28 PDF objects out of 1000 (max. 8388607)
+ 40 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

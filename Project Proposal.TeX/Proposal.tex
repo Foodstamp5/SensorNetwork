@@ -3,6 +3,7 @@
 
 \begin{document}  	
 	\section{The Team}
+		\vfill
 		\begin{tabular}{l l}
 			Team Name:    & Sensor Network    \\
 			\\
@@ -14,6 +15,10 @@
 			\\
 			Course Instructor: & Dr. Reza Raeisi\\
 		\end{tabular}
+		\vfill
+		\tableofcontents
+		\vfill
+		\newpage
 		 
 	\section{Goal}
 		\begin{itemize}
@@ -43,7 +48,7 @@
 		 	\item ESP8266 Microcontroller
 			 	\begin{itemize}
 			 		\item Economical (\$15 Development Kit)
-			 		\item Integrated WiFi
+			 		\item Integrated WiFi with 400+ m range
 			 		\item Interface with multiple sensors
 			 	\end{itemize}
 		 	\item WiFi Communication
@@ -56,8 +61,13 @@
 		 	\item Data Storage, Processing, \& Serving
 			 	\begin{itemize}
 			 		\item Use Raspberry Pi or router running Linux
-			 		\item Store sensor data on USB Drive using SQL or similar
+			 		\item Store sensor data on USB Drive using SQL server
 			 		\item Perform analytics on data
+			 		\begin{itemize}
+				 		\item Energy Usage
+				 		\item Run time
+				 		\item Temperature Variations
+				 	\end{itemize}
 			 		\item Configure controllers
 			 		\item Send data to mobile device for viewing via websockets
 			 	\end{itemize}
@@ -70,48 +80,114 @@
 				 \end{itemize}
 		 \end{itemize}
 		 
- 
+	 \section{Inputs/Outputs}
+		 The logical datapath for the project is diagramed in Figure~\ref{fig:BlockDiagram}. The network diagram for connecting different physical modules are presented in Figure~\ref{fig:NetworkDiagram}. The inputs/outputs are summarized below.
+		 \begin{itemize}
+		 	\item Sensor Data
+		 	\begin{itemize}
+		 		\item Temperature
+		 		\item Humidity
+		 		\item Wind Speed
+		 		\item Rainfall
+		 		\item Barametric Pressure
+		 		\item Voltage / Current
+		 		\item Brightness
+		 		\item Sound
+		 	\end{itemize}
+		 	\item Control Data
+		 	\begin{itemize}
+		 		\item AC / Heater
+		 		\item LEDs
+		 		\item Outlet
+		 		\item Light
+		 	\end{itemize}
+		 	\item Node Configuration
+		 	\begin{itemize}
+		 		\item Sampling Rate
+		 		\item Precision
+		 		\item Control Conditions
+		 		\item Network
+		 		\item Link to Account		 		
+		 	\end{itemize}
+		 	\item Plotted Sensor Data
+		 	\begin{itemize}
+		 		\item Organize sensor data graphically for user
+		 	\end{itemize}
+		 	\item Sensor Data Analytics
+		 	\begin{itemize}
+		 		\item Averages
+		 		\item Cummulative Totals
+		 	\end{itemize}
+		 	\item Network Status
+		 	\begin{itemize}
+		 		\item Nodes online
+		 		\item Last sensor readings
+		 	\end{itemize}
+		 \end{itemize}
+	 
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[height=0.8\textwidth, angle=90]{BlockDiagram}
+			\caption{The Logical Datapath}
+			\label{fig:BlockDiagram}
+		\end{figure}
+		
+		\clearpage
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[height=\textwidth, angle=90]{NetworkDiagram}
+			\caption{The Physcical Datapath}
+			\label{fig:NetworkDiagram}
+		\end{figure}
+		
+		\clearpage
+		 
+	\section{Project Timeline}
+	
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.85\textheight, angle=90]{GantChart}
+			\caption{Gant Chart for Project Timeline}
+			\label{fig:NetworkDiagram}
+		\end{figure}
 		 
 		 
-		 
-		 
-		 
-		 
-	 \newpage
-	 \section{Approval}
-		\begin{flushleft}
-			I agree to build the above project throughout ECE 186A and 186B.\\
-			\vspace{2em}
-			\begin{tabular}{l l l}
-				\line(1,0){250} & \hfill & \line(1,0){100}\\
-				\textit{Team Member Signature} & & \textit{Date}				
-			\end{tabular}
-			\vspace{2em}\\
-			\begin{tabular}{l l l}
-				\line(1,0){250} & \hfill & \line(1,0){100}\\
-				\textit{Team Member Signature} & & \textit{Date}
-			\end{tabular}
+%	 \newpage
+%	 \section{Approval}
+%		\begin{flushleft}
+%			I agree to build the above project throughout ECE 186A and 186B.\\
+%			\vspace{2em}
+%			\begin{tabular}{l l l}
+%				\line(1,0){250} & \hfill & \line(1,0){100}\\
+%				\textit{Team Member Signature} & & \textit{Date}				
+%			\end{tabular}
 %			\vspace{2em}\\
 %			\begin{tabular}{l l l}
 %				\line(1,0){250} & \hfill & \line(1,0){100}\\
 %				\textit{Team Member Signature} & & \textit{Date}
 %			\end{tabular}
-			\vspace{5em}
-			
-			I agree to be the formal, technical adivsor to this project.\\
-			\vspace{2em}
-			\begin{tabular}{l l l}
-				\line(1,0){250} & \hfill & \line(1,0){100}\\
-				\textit{Technical Advisor Signature} & & \textit{Date}
-			\end{tabular}
-			\vspace{5em}
-			
-			I approve this project to be a viable capstone project.\\
-			\vspace{2em}
-			\begin{tabular}{l l l}
-				\line(1,0){250} & \hfill & \line(1,0){100}\\
-				\textit{Course Instructor Signature} & & \textit{Date}
-			\end{tabular}
-		\end{flushleft}		 
+%%			\vspace{2em}\\
+%%			\begin{tabular}{l l l}
+%%				\line(1,0){250} & \hfill & \line(1,0){100}\\
+%%				\textit{Team Member Signature} & & \textit{Date}
+%%			\end{tabular}
+%			\vspace{5em}
+%			
+%			I agree to be the formal, technical adivsor to this project.\\
+%			\vspace{2em}
+%			\begin{tabular}{l l l}
+%				\line(1,0){250} & \hfill & \line(1,0){100}\\
+%				\textit{Technical Advisor Signature} & & \textit{Date}
+%			\end{tabular}
+%			\vspace{5em}
+%			
+%			I approve this project to be a viable capstone project.\\
+%			\vspace{2em}
+%			\begin{tabular}{l l l}
+%				\line(1,0){250} & \hfill & \line(1,0){100}\\
+%				\textit{Course Instructor Signature} & & \textit{Date}
+%			\end{tabular}
+%		\end{flushleft}		 
 		 
 \end{document}
