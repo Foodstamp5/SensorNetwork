@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.1)  9 MAR 2016 20:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.12.1)  9 MAR 2016 21:26
 entering extended mode
 **Proposal.tex
 (Proposal.tex
@@ -543,51 +543,101 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 34.
  [3]
-[4] [5] [6] <BlockDiagram.png, id=33, 1125.20375pt x 791.95876pt>
-File: BlockDiagram.png Graphic file (type png)
-
-<use BlockDiagram.png>
-Package pdftex.def Info: BlockDiagram.png used on input line 201.
-(pdftex.def)             Requested size: 533.9451pt x 375.80544pt.
+[4] [5]
+Overfull \hbox (3.37395pt too wide) in paragraph at lines 163--173
+ [][] 
+ []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7] [8 <./BlockDiagram.png>]
-<NetworkDiagram.png, id=43, 1066.98625pt x 847.165pt>
+<IntranodeProtocol.png, id=30, 465.74pt x 253.94875pt>
+File: IntranodeProtocol.png Graphic file (type png)
+
+<use IntranodeProtocol.png>
+Package pdftex.def Info: IntranodeProtocol.png used on input line 177.
+(pdftex.def)             Requested size: 469.75502pt x 256.1452pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Font Info:    Try loading font information for U+eur on input line 183.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\ueur.fd"
+File: ueur.fd 2013/01/14 v3.01 Euler Roman
+) [6]
+<DHT22init.png, id=35, 467.346pt x 302.93175pt>
+File: DHT22init.png Graphic file (type png)
+ <use DHT22init.png>
+Package pdftex.def Info: DHT22init.png used on input line 187.
+(pdftex.def)             Requested size: 469.75502pt x 304.49335pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<DHT22low.png, id=36, 417.35925pt x 349.305pt>
+File: DHT22low.png Graphic file (type png)
+ <use DHT22low.png>
+Package pdftex.def Info: DHT22low.png used on input line 194.
+(pdftex.def)             Requested size: 469.75502pt x 393.1697pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<DHT22high.png, id=37, 445.665pt x 330.63525pt>
+File: DHT22high.png Graphic file (type png)
+ <use DHT22high.png>
+Package pdftex.def Info: DHT22high.png used on input line 201.
+(pdftex.def)             Requested size: 469.75502pt x 348.50916pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7 <./IntranodeProtocol.png>] [8 <./DHT22init.png>] [9 <./DHT22low.png>]
+[10 <./DHT22high.png>] [11
+
+]
+<BlockDiagram.png, id=59, 1125.20375pt x 791.95876pt>
+File: BlockDiagram.png Graphic file (type png)
+ <use BlockDiagram.png>
+Package pdftex.def Info: BlockDiagram.png used on input line 267.
+(pdftex.def)             Requested size: 533.9451pt x 375.80544pt.
+
+[12 <./BlockDiagram.png>]
+<NetworkDiagram.png, id=64, 1066.98625pt x 847.165pt>
 File: NetworkDiagram.png Graphic file (type png)
  <use NetworkDiagram.png>
-Package pdftex.def Info: NetworkDiagram.png used on input line 210.
+Package pdftex.def Info: NetworkDiagram.png used on input line 276.
 (pdftex.def)             Requested size: 591.64713pt x 469.75502pt.
 
-[9
+[13
 
- <./NetworkDiagram.png>] <GantChart.png, id=48, 3398.6975pt x 1194.4625pt>
+ <./NetworkDiagram.png>] <GantChart.png, id=70, 3398.6975pt x 1194.4625pt>
 File: GantChart.png Graphic file (type png)
 
 <use GantChart.png>
-Package pdftex.def Info: GantChart.png used on input line 221.
+Package pdftex.def Info: GantChart.png used on input line 287.
 (pdftex.def)             Requested size: 552.86948pt x 194.28923pt.
- [10
+ [14
 
  <./GantChart.png>] (Proposal.aux) ) 
 Here is how much of TeX's memory you used:
- 8546 strings out of 493673
- 128169 string characters out of 3141533
- 206543 words of memory out of 3000000
- 11762 multiletter control sequences out of 15000+200000
- 10177 words of font info for 38 fonts, out of 3000000 for 9000
+ 8586 strings out of 493673
+ 128948 string characters out of 3141533
+ 208596 words of memory out of 3000000
+ 11793 multiletter control sequences out of 15000+200000
+ 10460 words of font info for 39 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 39i,18n,40p,813b,425s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,18n,40p,1038b,425s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmsy8.pfb>
-Output written on Proposal.pdf (10 pages, 517780 bytes).
+amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/ams
+fonts/euler/eurm10.pfb>
+Output written on Proposal.pdf (14 pages, 944801 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
+ 95 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -111,7 +111,7 @@
 		\end{itemize}
 		
 		\subsection{DHT22 Sensor}
-			The DHT22 temperature and humidity sensor can serve for either a weather station or thermostat node. It interfaces with the ATmega328P over a digital tri-state bus. The most important features for our purposes are:
+			The DHT22 temperature and humidity sensor can serve for either a weather station or thermostat node. It interfaces with the ATmega328P over a digital bus. The most important features for our purposes are:
 			\begin{itemize}
 				\item Unit cost of \$5.99
 				\item Temperature range of -40 - 80 $^\circ$C
@@ -120,7 +120,7 @@
 				\item Humidity accuracy of $\pm$ 2\% RH
 			\end{itemize}
 		
-		\subsection{Uxcell AC Current Sensor}
+		\subsection{AC Current Sensor}
 			The current sensor is non-invasive and plugs into a 3.5 mm TRS connector. Since it is non-invasive, the client safely clips it around the device they would like to measure without having to cut any wires. The most important features for our purposes are:
 			\begin{itemize}
 				\item Unit cost of \$11.19
@@ -147,10 +147,76 @@
 		
 		\subsection{Sound Sensor}
 			The sound sensor is a microphone that can detect people talking or serve as a spectrum analyzer using digital signal processing. %TODO: fill in Jon
-			
+		
+		% TODO: add rain, wind sensors
+		
 		\subsection{Cloud Server}
 			The cloud server will store historic sensor data and serve the web application for the users in addition to hosting the project management software for this project. It is the single entry point for users to access the sensor network from the internet.
-		 
+	 
+	\section{Protocols}
+		\subsection{Intranode Protocol}
+			The Intranode Protocol is used to gather sensor data from the sensor and controller modules to the node. The physical layer diagramed in Figure~\ref{fig:IntranodePhysical} depicts pins connecting the systems. The link layer is composed of 32 byte packets exchanged between the systems as described in Table~\ref{tab:IntranodeLink}. All words are stored in little-endian format.
+			\begin{table}[h!]
+				\centering
+				\caption{Intranode Packets}
+				\label{tab:IntranodeLink}
+				\begin{tabular}{l c c l}
+					\toprule[1.2pt]
+					Field Name & Byte Index & Field Width & Field Explation\\ \hline
+					Address & 0 & 8 bits & Which port the sensor is plugged into\\
+					Message Type & 1:2 & 16 bits & An identifier for how the payload is formated\\
+					Sensor Type & 3:4 & 16 bits & An identifier for the physical sensor board\\
+					Reserved & 5:6 & 16 bits & Reserved for later revisions\\
+					Payload & 7:30 & 24 bytes & Message data\\
+					Checksum & 31 & 8 bits & Checksum of first 31 bytes of packet\\ \bottomrule[1.2pt]
+				\end{tabular}
+			\end{table}
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\textwidth, angle=0]{IntranodeProtocol}
+				\caption{The connections between the node and sensor module}
+				\label{fig:IntranodePhysical}
+			\end{figure}
+	
+		\subsection{DHT22 Protocol}
+			The DHT22 communicates over a digital, bi-directional, single pin bus that is normally high. To begin a transmition, the ATmega first brings the bus low for at least 1 ms by configuring the pin as a digital output with a value of zero. It then configures the pin as a digital input with a weak pullup. 40 \textmu s later, the DHT22 brings the bus low for 80 \textmu s and high for 80 \textmu s to indicate that it is about to begin transmission as shown in Figure~\ref{fig:DHT22init}. The DHT22 then brings the bus low for 50 \textmu s and high for a variable amount of time. If the bus is high for 26 - 28 \textmu s, the bit is interpretted as a ``0'' as shown in Figure~\ref{fig:DHT22low}. If the bus is high for 70 \textmu s, the bit is interpretted as a ``1'' as shown in Figure~\ref{fig:DHT22high}. After all 40 bits have been transmitted, the DHT22 lets the bus float high. Note that the highest bit is transmitted first. %TODO: add schematic
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\textwidth, angle=0]{DHT22init}
+				\caption{The initialization of a reading between the ATmega328P and DHT22}
+				\label{fig:DHT22init}
+			\end{figure}
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\textwidth, angle=0]{DHT22low}
+				\caption{The DHT22 trasnmitting a ``0''}
+				\label{fig:DHT22low}
+			\end{figure}
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\textwidth, angle=0]{DHT22high}
+				\caption{The DHT22 transmitting a ``1''}
+				\label{fig:DHT22high}
+			\end{figure}
+			
+			\clearpage
+			
+		\subsection{AC Current Sensor}
+			The current sensor uses a transformer to induce a current between 0 and 50 mA (RMS) at 60 Hz on the secondary coil. This wave is sampled on the ATmega328P's analog input channel to calculate the RMS current though the primary coil. With the 10 bit ADC on the ATmega328P, this translates to a 98 mA (RMS) resolution on the primary coil's current. %TODO: add schematic
+		
+		\subsection{Barometric Pressure Sensor}
+			The barometric pressure sensor communicates with the ATmega328P through an I$^2$C bus. %TODO: finsih, add schematic, register map
+			
+		\subsection{Brightness Sensor}
+			The brightness sensors connect to the ATmega328P's ADC channels where a higher analog voltage represents a brighter room. %TODO: add schematic with multiple sensors
+		
+		\subsection{Sound Sensor}
+			The sound sensor %TODO: start, add schematic, etc
+		
 	 \section{Input/Output Diagram}
 		 The logical datapath for the project is diagramed in Figure~\ref{fig:BlockDiagram}. The network diagram for connecting different physical modules are presented in Figure~\ref{fig:NetworkDiagram}. The inputs/outputs are summarized below.
 		 \begin{itemize}
