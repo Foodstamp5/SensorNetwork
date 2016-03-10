@@ -1,7 +1,26 @@
-\contentsline {section}{\numberline {1}The Team}{1}
-\contentsline {section}{\numberline {2}Goal}{2}
-\contentsline {section}{\numberline {3}Objectives}{2}
-\contentsline {section}{\numberline {4}Background}{2}
-\contentsline {section}{\numberline {5}Feasibility}{2}
-\contentsline {section}{\numberline {6}Inputs/Outputs}{3}
-\contentsline {section}{\numberline {7}Project Timeline}{6}
+\contentsline {section}{Title Page}{1}
+\contentsline {section}{Table of Contents}{2}
+\contentsline {section}{\numberline {1}The Team}{3}
+\contentsline {section}{\numberline {2}Goals}{3}
+\contentsline {section}{\numberline {3}Objectives}{3}
+\contentsline {subsection}{\numberline {3.1}Modularity}{3}
+\contentsline {subsection}{\numberline {3.2}Dynamic}{3}
+\contentsline {subsection}{\numberline {3.3}Interactive}{3}
+\contentsline {subsection}{\numberline {3.4}Easy to Use}{3}
+\contentsline {section}{\numberline {4}Background}{4}
+\contentsline {subsection}{\numberline {4.1}Microcontroller Programming and Interfacing}{4}
+\contentsline {subsection}{\numberline {4.2}Wireless Communication}{4}
+\contentsline {subsection}{\numberline {4.3}Data Storage, Processing, and Serving}{4}
+\contentsline {subsection}{\numberline {4.4}Mobile App Development}{4}
+\contentsline {section}{\numberline {5}Feasibility}{4}
+\contentsline {subsection}{\numberline {5.1}ESP8266 Microcontroller}{4}
+\contentsline {subsection}{\numberline {5.2}ATmega328P Microcontroller}{5}
+\contentsline {subsection}{\numberline {5.3}2.8" TFT LCD Touchscreen}{5}
+\contentsline {subsection}{\numberline {5.4}DHT22 Sensor}{5}
+\contentsline {subsection}{\numberline {5.5}Uxcell AC Current Sensor}{5}
+\contentsline {subsection}{\numberline {5.6}Barometric Pressure Sensor}{6}
+\contentsline {subsection}{\numberline {5.7}Brightness Sensor}{6}
+\contentsline {subsection}{\numberline {5.8}Sound Sensor}{6}
+\contentsline {subsection}{\numberline {5.9}Cloud Server}{6}
+\contentsline {section}{\numberline {6}Input/Output Diagram}{6}
+\contentsline {section}{\numberline {7}Project Timeline}{10}

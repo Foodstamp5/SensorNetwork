@@ -2,6 +2,19 @@
 \input{Commands.tex}
 
 \begin{document}  	
+	\addcontentsline{toc}{section}{Title Page}
+	\includepdf[pages=1]{cover.pdf}
+	\renewcommand*\contentsname{
+		\begin{align*}
+			\normalsize \textbf{TABLE OF CONTENTS}
+		\end{align*}
+		\noindent\makebox[\textwidth]{\normalsize \textbf{Section}\hfill \normalsize  \textbf{Page}}
+	}
+	\addcontentsline{toc}{section}{Table of Contents}  	
+	\tableofcontents
+	
+	\newpage
+	
 	\section{The Team}
 		\vfill
 		\begin{tabular}{l l}
@@ -15,12 +28,8 @@
 			\\
 			Course Instructor: & Dr. Reza Raeisi\\
 		\end{tabular}
-		\vfill
-		\tableofcontents
-		\vfill
-		\newpage
 		 
-	\section{Goal}
+	\section{Goals}
 		\begin{itemize}
 			\item Create a system to collect, transport, analyze, store, and visualize sensor data
 			\item Control external systems manually or automatically according to sensor inputs
@@ -28,78 +37,140 @@
 		\end{itemize}
 		
 	\section{Objectives}
-		\begin{itemize}
-			\item Build sensor modules built around existing sensors that interface and draw power from the wireless node
-			\item Build wireless nodes that connect to the sensor module over a unified hardware interface. The nodes will form a mesh network to establish communication with the base station
-			\item The base station will interface with the nodes and sensors, both reading sensor values and controlling modules. It will also host the database to store historic data and a server to interface with mobile apps
-			\item The mobile app will allow the user to interface with our system; reading sensors, configuring nodes, and controlling nodes.
-		\end{itemize}
-	
+		\subsection{Modularity}
+			\begin{itemize}
+				\item The network shall be modular and be composed of a wireless network of similar nodes with one base station
+				\item The nodes shall be modular and support a variety of sensors and controllers interfacing over a common hardware/software interface
+			\end{itemize}
+			
+		\subsection{Dynamic}
+			\begin{itemize}
+				\item The network shall be able to respond to the dynamic addition or removal of nodes
+				\item The nodes shall support hot-plugging of sensors
+				\item The client application shall view live data from the sensors
+			\end{itemize}
+			
+		\subsection{Interactive}
+			\begin{itemize}
+				\item The nodes shall generate alerts for the user to respond to
+				\item The user shall control the node's sensors and controllers from the client application
+			\end{itemize}
+		\subsection{Easy to Use}
+			\begin{itemize}
+				\item The user application shall allow easy configuration of new nodes and sensors
+				\item The historic data shall be presented in a clean, graphical manner to the user
+				\item The user interface shall be intuitive and user friendly
+			\end{itemize}
+			
 	\section{Background}
-		\begin{itemize}
-			\item Microcontroller Programming and Interfacing
-			\item Wireless Communication and Networking
-			\item Data Storage, Processing, and Serving
-			\item Mobile App Development
-		\end{itemize}
+		\subsection{Microcontroller Programming and Interfacing}
+			Both team members of our team have experience programming a wide variety of microcontrollers to interface with the outside world. This knowledge will be vital to interfacing with the sensors to gather data into our network and controlling exterior devices. It will also be useful for interprocessor communication to relay messages from one end of the network to the other (including the user's phone).
+		
+		\subsection{Wireless Communication}
+			Nick has some experience with establishing communication between a few processors through multiple point to point links. This will help us get starting, but we will put further research into how to implement a mesh network, including routing algorithms.
+		
+		\subsection{Data Storage, Processing, and Serving}
+			Both team members have some server-side experience in spinning up servers and presenting data to the user from a database. Nick also has experience funneling data into the database that will be important for establishing communication between the server and base station to transfer data into the database. Since our sensor data will be highly compressable, we will implement a custom compression algorithm to minimize network and server resources.
+			
+		\subsection{Mobile App Development}
+			Both team members have some web application experience we will leverage for first creating a web interface to our network. We will then port our web application to Android and iOS.
  
 	 \section{Feasibility}
-		 \begin{itemize}
-		 	\item ESP8266 Microcontroller
-			 	\begin{itemize}
-			 		\item Economical (\$15 Development Kit)
-			 		\item Integrated WiFi with 400+ m range
-			 		\item Interface with multiple sensors
-			 	\end{itemize}
-		 	\item WiFi Communication
-			 	\begin{itemize}
-			 		\item Commonly available
-			 		\item Use mobile app to configure nodes via WiFi
-			 		\item Connect to existing network to access internet
-			 		\item Connect mobile device to local network to interface with sensors
-			 	\end{itemize}
-		 	\item Data Storage, Processing, \& Serving
-			 	\begin{itemize}
-			 		\item Use Raspberry Pi or router running Linux
-			 		\item Store sensor data on USB Drive using SQL server
-			 		\item Perform analytics on data
-			 		\begin{itemize}
-				 		\item Energy Usage
-				 		\item Run time
-				 		\item Temperature Variations
-				 	\end{itemize}
-			 		\item Configure controllers
-			 		\item Send data to mobile device for viewing via websockets
-			 	\end{itemize}
-			 \item Mobile App Development
-				 \begin{itemize}
-				 	\item Do initial setup of sensor
-				 	\item View sensor data
-				 	\item Configure controllers
-				 	\item Connect locally or over the internet through online account
-				 \end{itemize}
-		 \end{itemize}
+		 \subsection{ESP8266 Microcontroller}
+			 The ESP8266 microcontroller is a low cost microcontroller with integrated, long-range wireless communications that will be the master control unit of each node. The most important features for our purposes are:
+			 \begin{itemize}
+			 	\item Unit cost of \$2.44 in lots of 10 or more
+			 	\item Range of 366 meters with standard consumer wireless router and range of 3.71 kilometer with long range access point
+			 	\item I$^2$C interface for communicating with sensor modules
+			 	\item Analog to digital converter for monitoring supply voltage (if we deploy battery powered nodes)
+			 	\item UART port (if we interface multiple ESP8266s on a node)
+			 	\item 13 general purpose input/output pins for buttons and status LEDs
+			 \end{itemize}
+			 
+		\subsection{ATmega328P Microcontroller}
+			The ATmega328P microcontroller is a low cost, general purpose microcontroller. To simplify the software and hardware interface between the sensors and our network, each sensor module will contain an ATmega328P. This enables a simple, common interface between the node and sensor module over I$^2$C and offloads the sensor monitoring from the ESP8266. It also makes the sensor modules more universal since adding or changing sensors will not require a firmware update on the node itself. Instead the sensor specific firmware is stored on the ATmega328P that is bundled with the sensor. The most important features for our purposes are:
+			\begin{itemize}
+				\item Unit cost of \$1.21 in lots of 10 or more
+				\item Wide variety of intefaces to talk to the sensor based on it's specific needs
+				\begin{itemize}
+					\item 20 genneral purpose input/output pins
+					\item 8 channel analog to digital converter
+					\item 6 pulse width modulation outputs
+					\item SPI
+					\item UART
+					\item I$^2$C
+				\end{itemize}
+			\end{itemize}
+		
+		\subsection{2.8" TFT LCD Touchscreen}
+		The touchscreen allows the node to have a direct and convienent user interface. For example, on a thermostat it would allow the user to see the current temperature, change the set point, view the energy usage of the air conditioner, and view a plot of the temperature without having to pull up the client app. It can also be used to aid in the initial setup process. It is not strictly necessary, but offers a polished feel to the system for the user to immediately see the system working. The most important features for our purposes are:
+		\begin{itemize}
+			\item Unit cost of \$8.19
+			\item Full color screen for displaying user interface
+			\item Touch enabled for user input
+		\end{itemize}
+		
+		\subsection{DHT22 Sensor}
+			The DHT22 temperature and humidity sensor can serve for either a weather station or thermostat node. It interfaces with the ATmega328P over a digital tri-state bus. The most important features for our purposes are:
+			\begin{itemize}
+				\item Unit cost of \$5.99
+				\item Temperature range of -40 - 80 $^\circ$C
+				\item Temperature accuracy of $\pm$ 0.5 $^\circ$C
+				\item Humidity range of 0 - 100\% RH
+				\item Humidity accuracy of $\pm$ 2\% RH
+			\end{itemize}
+		
+		\subsection{Uxcell AC Current Sensor}
+			The current sensor is non-invasive and plugs into a 3.5 mm TRS connector. Since it is non-invasive, the client safely clips it around the device they would like to measure without having to cut any wires. The most important features for our purposes are:
+			\begin{itemize}
+				\item Unit cost of \$11.19
+				\item Measures up to 100 A loads (can be used for air conditioners or entire house)
+				\item Common connector
+			\end{itemize}
+		
+		\subsection{Barometric Pressure Sensor}
+			The barometeric pressure sensor allows us to enhance a weather station's measurements or track the node's elevation. The most important features for out purposes are:
+			\begin{itemize}
+				\item Unit cost of \$4.34
+				\item Pressure range of 300 - 1100 hPa
+				\item Pressure accuracy of 0.02 hPa
+				\item Elevation range of -500 - 9000 meters
+				\item Elevation accuracy of 17 cm
+				\item I$^2$C interface
+			\end{itemize}
+		
+		\subsection{Brightness Sensor}
+			The brightness sensor is a photoresistor that can detect the ambient brightness level of the room. It can be used to monitor when people leave the lights on or track sunrise/sunset. We can also mount multiple sensors on each module pointed in different directions The most important features for our purposes are:
+			\begin{itemize}
+				\item Unit cost of \$0.03 in lots of 100 or more
+			\end{itemize}
+		
+		\subsection{Sound Sensor}
+			The sound sensor is a microphone that can detect people talking or serve as a spectrum analyzer using digital signal processing. %TODO: fill in Jon
+			
+		\subsection{Cloud Server}
+			The cloud server will store historic sensor data and serve the web application for the users in addition to hosting the project management software for this project. It is the single entry point for users to access the sensor network from the internet.
 		 
-	 \section{Inputs/Outputs}
+	 \section{Input/Output Diagram}
 		 The logical datapath for the project is diagramed in Figure~\ref{fig:BlockDiagram}. The network diagram for connecting different physical modules are presented in Figure~\ref{fig:NetworkDiagram}. The inputs/outputs are summarized below.
 		 \begin{itemize}
 		 	\item Sensor Data
 		 	\begin{itemize}
 		 		\item Temperature
 		 		\item Humidity
-		 		\item Wind Speed
-		 		\item Rainfall
-		 		\item Barametric Pressure
-		 		\item Voltage / Current
+%		 		\item Wind Speed
+%		 		\item Rainfall
+		 		\item Barometric Pressure / Elevation
+		 		\item Current / Energy usage
 		 		\item Brightness
 		 		\item Sound
 		 	\end{itemize}
-		 	\item Control Data
+		 	\item Control Devices
 		 	\begin{itemize}
-		 		\item AC / Heater
+		 		\item Air Conditioner / Heater
 		 		\item LEDs
-		 		\item Outlet
-		 		\item Light
+		 		\item Outlets
+		 		\item Lights
 		 	\end{itemize}
 		 	\item Node Configuration
 		 	\begin{itemize}
@@ -107,7 +178,7 @@
 		 		\item Precision
 		 		\item Control Conditions
 		 		\item Network
-		 		\item Link to Account		 		
+		 		\item Link to Account
 		 	\end{itemize}
 		 	\item Plotted Sensor Data
 		 	\begin{itemize}
@@ -149,7 +220,7 @@
 			\centering
 			\includegraphics[width=0.85\textheight, angle=90]{GantChart}
 			\caption{Gant Chart for Project Timeline}
-			\label{fig:NetworkDiagram}
+			\label{fig:GantChart}
 		\end{figure}
 		 
 		 
