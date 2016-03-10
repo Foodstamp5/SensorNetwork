@@ -1,5 +1,6 @@
 \input{Header.tex}
 \input{Commands.tex}
+\graphicspath{{img/}}
 
 \begin{document}  	
 	\addcontentsline{toc}{section}{Title Page}
@@ -99,10 +100,11 @@
 					\item SPI
 					\item UART
 					\item I$^2$C
+					\item OneWire
 				\end{itemize}
 			\end{itemize}
 		
-		\subsection{2.8" TFT LCD Touchscreen}
+		\subsection{2.8'' TFT LCD Touchscreen}
 		The touchscreen allows the node to have a direct and convienent user interface. For example, on a thermostat it would allow the user to see the current temperature, change the set point, view the energy usage of the air conditioner, and view a plot of the temperature without having to pull up the client app. It can also be used to aid in the initial setup process. It is not strictly necessary, but offers a polished feel to the system for the user to immediately see the system working. The most important features for our purposes are:
 		\begin{itemize}
 			\item Unit cost of \$8.19
@@ -145,8 +147,8 @@
 				\item Unit cost of \$0.03 in lots of 100 or more
 			\end{itemize}
 		
-		\subsection{Sound Sensor}
-			The sound sensor is a microphone that can detect people talking or serve as a spectrum analyzer using digital signal processing. %TODO: fill in Jon
+		\subsection{Audio Sensor}
+			The audio sensor is a microphone that can detect people talking or serve as a spectrum analyzer using digital signal processing. %TODO: fill in Jon
 		
 		% TODO: add rain, wind sensors
 		
@@ -179,8 +181,41 @@
 				\label{fig:IntranodePhysical}
 			\end{figure}
 	
+		\subsection{Touchscreen Protocol}
+			The touchscreen communicates with the ATmega328P over a bi-directional parallel port according to the five status bits as diagrammed in Figure~\ref{fig:TFTProtocol} and Table~\ref{tab:TouchscreenProtocol}. To write data to the LCD, the ATmega328P brings CS low to enable the touchscreen. It then asserts CD low for sending a command or high for sending data followed by placing the data to transmit on the data bus. Finally, the ATmega329P brings WR low for a few clock cycles and back high. To read data from the LCD, the ATmega328P brings CS low to enable the touchscreen, brings RD low for a few clock cycles, and brings RD back high. It then reads the byte off the data bus.
+			\begin{table}[h!]
+				\centering
+				\caption{Touchscreen Physical Interface}
+				\label{tab:TouchscreenProtocol}
+				\begin{tabular}{c c l}
+					\toprule[1.2pt]
+					Pin Symbol & Pin Name & Pin Explation\\ \hline
+					$\overline{\textrm{CS}}$ & $\overline{\textrm{Chip Select}}$ & Enables touchscreen communications when low\\
+					CD & $\overline{\textrm{Command}}$/Data & 0: Command, 1: Data\\
+					WR & Write & Writes data to the touchscreen on falling edge\\
+					RD & Read & Reads data from the touchscreen on falling edge\\
+					$\overline{\textrm{RST}}$ & $\overline{\textrm{Reset}}$ & Resets the touchscreen when low\\
+					D7:D0 & LCD Data & A byte transmitted between ATmega328P and touchscreen\\ \bottomrule[1.2pt]
+				\end{tabular}
+			\end{table}
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\textwidth, angle=0]{TFTProtocol}
+				\caption{The connections between the touchscreen and ATmega328P}
+				\label{fig:TFTProtocol}
+			\end{figure}
+			
+	
 		\subsection{DHT22 Protocol}
-			The DHT22 communicates over a digital, bi-directional, single pin bus that is normally high. To begin a transmition, the ATmega first brings the bus low for at least 1 ms by configuring the pin as a digital output with a value of zero. It then configures the pin as a digital input with a weak pullup. 40 \textmu s later, the DHT22 brings the bus low for 80 \textmu s and high for 80 \textmu s to indicate that it is about to begin transmission as shown in Figure~\ref{fig:DHT22init}. The DHT22 then brings the bus low for 50 \textmu s and high for a variable amount of time. If the bus is high for 26 - 28 \textmu s, the bit is interpretted as a ``0'' as shown in Figure~\ref{fig:DHT22low}. If the bus is high for 70 \textmu s, the bit is interpretted as a ``1'' as shown in Figure~\ref{fig:DHT22high}. After all 40 bits have been transmitted, the DHT22 lets the bus float high. Note that the highest bit is transmitted first. %TODO: add schematic
+			The DHT22 communicates over a digital, bi-directional, single pin bus that is normally high through the connections made in Figure~\ref{fig:DHT22Protocol}. To begin a transmition, the ATmega first brings the bus low for at least 1 ms by configuring the pin as a digital output with a value of zero. It then configures the pin as a digital input with a weak pullup. 40 \textmu s later, the DHT22 brings the bus low for 80 \textmu s and high for 80 \textmu s to indicate that it is about to begin transmission as shown in Figure~\ref{fig:DHT22init}. The DHT22 then brings the bus low for 50 \textmu s and high for a variable amount of time. If the bus is high for 26 - 28 \textmu s, the bit is interpretted as a ``0'' as shown in Figure~\ref{fig:DHT22low}. If the bus is high for 70 \textmu s, the bit is interpretted as a ``1'' as shown in Figure~\ref{fig:DHT22high}. After all 40 bits have been transmitted, the DHT22 lets the bus float high. Note that the highest bit is transmitted first.
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\textwidth, angle=0]{DHT22Protocol}
+				\caption{The connections between the sensor module and DHT22}
+				\label{fig:DHT22Protocol}
+			\end{figure}
 			
 			\begin{figure}[h!]
 				\centering
@@ -206,16 +241,68 @@
 			\clearpage
 			
 		\subsection{AC Current Sensor}
-			The current sensor uses a transformer to induce a current between 0 and 50 mA (RMS) at 60 Hz on the secondary coil. This wave is sampled on the ATmega328P's analog input channel to calculate the RMS current though the primary coil. With the 10 bit ADC on the ATmega328P, this translates to a 98 mA (RMS) resolution on the primary coil's current. %TODO: add schematic
+			The current sensor uses a transformer to induce a current between 0 and 50 mA (RMS) at 60 Hz on the secondary coil. This current is passed through the RC network in Figure~\ref{fig:CurrentSensorProtocol} to generate a sinisoid centered at 2.5 V oscilating between 0 V and 5 V. This wave is sampled on the ATmega328P's analog input channel to calculate the RMS current though the primary coil. With the 10 bit ADC on the ATmega328P, this translates to a 98 mA (RMS) resolution on the primary coil's current.
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=\textwidth, angle=0]{CurrentSensorProtocol}
+					\caption{The connections between the sensor module and current sensor}
+					\label{fig:CurrentSensorProtocol}
+				\end{figure}
+		
 		
 		\subsection{Barometric Pressure Sensor}
-			The barometric pressure sensor communicates with the ATmega328P through an I$^2$C bus. %TODO: finsih, add schematic, register map
+			The barometric pressure sensor communicates with the ATmega328P through an I$^2$C bus as depicted in Figure~\ref{fig:BMP180protocol}. It does this by triggering the BMP180, reading the calibration data, reading the raw pressure reading, and calculating the true pressure data according to Figure~\ref{fig:BMP180flowchart}. The calibration and status register addresses are recored in Figures~\ref{fig:BMP180calibration}~and~\ref{fig:BMP180registers}, respectively. Once the barometric pressure has been calculated, the ATmega328P calculates the altitude from the relationship in Figure~\ref{fig:BMP180altitude}.
 			
-		\subsection{Brightness Sensor}
-			The brightness sensors connect to the ATmega328P's ADC channels where a higher analog voltage represents a brighter room. %TODO: add schematic with multiple sensors
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\textwidth, angle=0]{BMP180Protocol}
+				\caption{The interface between the ATmega328P and BMP180}
+				\label{fig:BMP180protocol}
+			\end{figure}
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[height=0.95\textheight, angle=0]{BMP180flowchart}
+				\caption{The program flow for reading the BMP180}
+				\label{fig:BMP180flowchart}
+			\end{figure}
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.4\textwidth, angle=0]{BMP180calibration}
+				\caption{The calibration registers for the BMP180}
+				\label{fig:BMP180calibration}
+			\end{figure}
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.6\textwidth, angle=0]{BMP180altitude}
+				\caption{The relationship between barometric pressure and altitude}
+				\label{fig:BMP180altitude}
+			\end{figure}
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=0.95\textheight, angle=90]{BMP180registers}
+				\caption{The status registers of the BMP180}
+				\label{fig:BMP180registers}
+			\end{figure}
+			
 		
-		\subsection{Sound Sensor}
-			The sound sensor %TODO: start, add schematic, etc
+			\clearpage
+		
+		\subsection{Brightness Sensor}
+			The brightness sensors connect to the ATmega328P's ADC channels where a higher analog voltage represents a brighter room. There are six brightness sensors on each sensor module, allowing for light detection in six directions as shown in Figure~\ref{fig:BrightnessSensorProtocol}.
+			
+			\begin{figure}[h!]
+				\centering
+				\includegraphics[width=\textwidth, angle=0]{BrightnessSensorProtocol}
+				\caption{The interface between the brightness sensors and ATmega328P}
+				\label{fig:BrightnessSensorProtocol}
+			\end{figure}
+			
+		\subsection{Audio Sensor}
+			The audio sensor %TODO: start, add schematic, etc
 		
 	 \section{Input/Output Diagram}
 		 The logical datapath for the project is diagramed in Figure~\ref{fig:BlockDiagram}. The network diagram for connecting different physical modules are presented in Figure~\ref{fig:NetworkDiagram}. The inputs/outputs are summarized below.

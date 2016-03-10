@@ -1,33 +1,34 @@
 \contentsline {section}{Title Page}{1}
 \contentsline {section}{Table of Contents}{2}
-\contentsline {section}{\numberline {1}The Team}{3}
-\contentsline {section}{\numberline {2}Goals}{3}
-\contentsline {section}{\numberline {3}Objectives}{3}
-\contentsline {subsection}{\numberline {3.1}Modularity}{3}
-\contentsline {subsection}{\numberline {3.2}Dynamic}{3}
-\contentsline {subsection}{\numberline {3.3}Interactive}{3}
-\contentsline {subsection}{\numberline {3.4}Easy to Use}{3}
-\contentsline {section}{\numberline {4}Background}{4}
-\contentsline {subsection}{\numberline {4.1}Microcontroller Programming and Interfacing}{4}
-\contentsline {subsection}{\numberline {4.2}Wireless Communication}{4}
-\contentsline {subsection}{\numberline {4.3}Data Storage, Processing, and Serving}{4}
-\contentsline {subsection}{\numberline {4.4}Mobile App Development}{4}
-\contentsline {section}{\numberline {5}Feasibility}{4}
-\contentsline {subsection}{\numberline {5.1}ESP8266 Microcontroller}{4}
-\contentsline {subsection}{\numberline {5.2}ATmega328P Microcontroller}{5}
-\contentsline {subsection}{\numberline {5.3}2.8" TFT LCD Touchscreen}{5}
-\contentsline {subsection}{\numberline {5.4}DHT22 Sensor}{5}
-\contentsline {subsection}{\numberline {5.5}AC Current Sensor}{5}
-\contentsline {subsection}{\numberline {5.6}Barometric Pressure Sensor}{6}
-\contentsline {subsection}{\numberline {5.7}Brightness Sensor}{6}
-\contentsline {subsection}{\numberline {5.8}Sound Sensor}{6}
-\contentsline {subsection}{\numberline {5.9}Cloud Server}{6}
-\contentsline {section}{\numberline {6}Protocols}{6}
-\contentsline {subsection}{\numberline {6.1}Intranode Protocol}{6}
-\contentsline {subsection}{\numberline {6.2}DHT22 Protocol}{7}
-\contentsline {subsection}{\numberline {6.3}AC Current Sensor}{11}
-\contentsline {subsection}{\numberline {6.4}Barometric Pressure Sensor}{11}
-\contentsline {subsection}{\numberline {6.5}Brightness Sensor}{11}
-\contentsline {subsection}{\numberline {6.6}Sound Sensor}{11}
-\contentsline {section}{\numberline {7}Input/Output Diagram}{11}
-\contentsline {section}{\numberline {8}Project Timeline}{14}
+\contentsline {section}{\numberline {1}The Team}{4}
+\contentsline {section}{\numberline {2}Goals}{4}
+\contentsline {section}{\numberline {3}Objectives}{4}
+\contentsline {subsection}{\numberline {3.1}Modularity}{4}
+\contentsline {subsection}{\numberline {3.2}Dynamic}{4}
+\contentsline {subsection}{\numberline {3.3}Interactive}{4}
+\contentsline {subsection}{\numberline {3.4}Easy to Use}{4}
+\contentsline {section}{\numberline {4}Background}{5}
+\contentsline {subsection}{\numberline {4.1}Microcontroller Programming and Interfacing}{5}
+\contentsline {subsection}{\numberline {4.2}Wireless Communication}{5}
+\contentsline {subsection}{\numberline {4.3}Data Storage, Processing, and Serving}{5}
+\contentsline {subsection}{\numberline {4.4}Mobile App Development}{5}
+\contentsline {section}{\numberline {5}Feasibility}{5}
+\contentsline {subsection}{\numberline {5.1}ESP8266 Microcontroller}{5}
+\contentsline {subsection}{\numberline {5.2}ATmega328P Microcontroller}{6}
+\contentsline {subsection}{\numberline {5.3}2.8'' TFT LCD Touchscreen}{6}
+\contentsline {subsection}{\numberline {5.4}DHT22 Sensor}{6}
+\contentsline {subsection}{\numberline {5.5}AC Current Sensor}{7}
+\contentsline {subsection}{\numberline {5.6}Barometric Pressure Sensor}{7}
+\contentsline {subsection}{\numberline {5.7}Brightness Sensor}{7}
+\contentsline {subsection}{\numberline {5.8}Audio Sensor}{7}
+\contentsline {subsection}{\numberline {5.9}Cloud Server}{7}
+\contentsline {section}{\numberline {6}Protocols}{7}
+\contentsline {subsection}{\numberline {6.1}Intranode Protocol}{7}
+\contentsline {subsection}{\numberline {6.2}Touchscreen Protocol}{8}
+\contentsline {subsection}{\numberline {6.3}DHT22 Protocol}{9}
+\contentsline {subsection}{\numberline {6.4}AC Current Sensor}{13}
+\contentsline {subsection}{\numberline {6.5}Barometric Pressure Sensor}{13}
+\contentsline {subsection}{\numberline {6.6}Brightness Sensor}{18}
+\contentsline {subsection}{\numberline {6.7}Audio Sensor}{18}
+\contentsline {section}{\numberline {7}Input/Output Diagram}{18}
+\contentsline {section}{\numberline {8}Project Timeline}{22}
